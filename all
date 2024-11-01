@@ -1,0 +1,121 @@
+classe funcionario 
+
+package br.com.guilherme.polimorfismo;
+
+public class Funcionarios {
+	private String cargo;
+	private double salario;
+	private double hora;
+
+	public Funcionarios(String cargo, double salario, double hora) {
+		super();
+		this.cargo = cargo;
+		this.salario = salario;
+		this.hora = hora;
+	}
+
+
+	public String getCargo() {
+		return cargo;
+	}
+
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+
+
+	public double getSalario() {
+		return salario;
+	}
+
+
+	public void setSalario(double salario) {
+		this.salario = salario;
+	}
+
+
+	public double getHora() {
+		return hora;
+	}
+
+
+	public void setHora(double hora) {
+		this.hora = hora;
+	}
+
+
+	public double calculaSalario() {
+		
+		return salario * hora;
+		
+		
+	}
+	
+}
+-----------------------------------------------------------------------------------------------
+classe gerente
+
+
+package br.com.guilherme.polimorfismo;
+
+public class Gerente  extends Funcionarios {
+	
+	private String cargo;
+
+	public Gerente(double salario, double hora, String cargo) {
+		super(salario, hora);
+		this.cargo = cargo;
+	}
+
+	@Override
+	public double calculaSalario() {
+		// TODO Auto-generated method stub
+		return super.calculaSalario();
+	}
+
+}
+
+-----------------------------------------------------------------------------------------------
+classe diretor
+
+package br.com.guilherme.polimorfismo;
+
+public class Diretor extends Funcionarios{
+	
+	private String cargo;
+
+	public Diretor(double salario, double hora, String cargo) {
+		super(salario, hora);
+		this.cargo = cargo;
+	}
+
+	@Override
+	public double calculaSalario() {
+		// TODO Auto-generated method stub
+		return super.calculaSalario() *1.50 ;		
+		
+	}
+
+}
+-----------------------------------------------------------------------------------------------
+classe folha de pagamento
+
+package br.com.guilherme.polimorfismo;
+import java.util.List;
+
+public class FolhaDePagamento {
+	
+	public void calcularSalario (List<Funcionarios> listaDeFuncionarios ) {
+		for (Funcionarios funcionarios : listaDeFuncionarios ) {
+			System.out.printf("Cargo: %s - salario %.2f\n", funcionarios.getCargo(), funcionarios.calculaSalario() );
+			
+		}
+	}
+}
+
+
+  
+ 
+
+
